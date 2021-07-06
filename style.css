@@ -1,0 +1,356 @@
+/* ---------------------CUSTOM PROPERTIES------------------- */
+
+:root {
+    /* Colors */
+    --main-color: #BC5B6C;
+    --light-blue: #cde6f5;
+    --med-blue: #acc6d9;
+    --dark-blue: #6a87a1;
+    --selected-blue: #203f5b;
+    --game-white: #fef9ef;
+    --game-pink: #E69B89;
+    --light-green: #BDC696;
+    --dark-green: #525741;
+
+    /* Fonts */
+    --font-headings: 'Luckiest Guy', Impact, cursive;
+    --font-main: 'Roboto', sans-serif;
+}
+
+/* ---------------------BASE STYLES------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    width: 100%;
+    /* background-color: var(--main-color);  */
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--game-white);   
+    font-family: var(--font-main);
+    padding-bottom: 2rem;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 8vw;
+    color: var(--main-color);
+    text-align: center;
+    text-decoration: underline;
+    font-family: var(--font-headings);
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+}
+
+@media screen and (min-width: 650px){
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: black;
+}
+
+@media screen and (min-width: 650px){
+    h2 {
+        font-size: 3rem;
+    }
+}
+
+
+.outermost {
+    width: 100%;
+    height: 100%;   
+}
+
+button {
+    width: 7rem;
+    height: auto;
+    font-size: 1.5rem;
+    font-weight: 700;;
+    display: inline-block;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: var(--game-white);
+    border-bottom: solid 3px black;
+    border-radius: 3px;
+}
+
+@media screen and (min-width: 650px){
+    button {
+        width: 12rem
+    }
+}
+
+.centering-button {
+    display: flex;
+    justify-content: center;
+}
+
+button:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+    border-bottom: none;
+}
+
+/* ---------------------------SPLASH SCREEN----------------- */
+
+.splash-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.splash-photo img {
+    border: 3px solid black;
+    border-radius: 10%;
+    width: 18rem;
+    height: 25rem;
+}
+
+/* -------------------------------MODE SCREEN --------------------*/
+.mode-buttons,
+.player-number-input,
+.difficulty-input {
+    margin-top: 1rem;
+}
+
+#easy-button.selected,
+#medium-button.selected,
+#hard-button.selected {
+    background-color: var(--selected-blue);
+    color: var(--game-white);
+}
+
+.player-name-input {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 50rem;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+}
+
+.player-name-input input {
+    text-align: center;
+    margin: 0 1rem;
+}
+
+.player-name-alert,
+.player-mode-alert {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+#single-player-button {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+}
+
+#double-player-button {
+    background-color: #9fa77d;
+}
+
+#triple-player-button {
+    background-color: #73795a;
+}
+
+#four-player-button{
+    background-color: var(--dark-green);
+}
+
+#easy-button {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+#medium-button {
+    background-color: var(--med-blue);
+}
+
+#hard-button {
+    background-color: var(--dark-blue);
+}
+
+#play-game-button {
+    background-color: var(--game-pink);
+    width: 12rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.75rem;
+    margin-top: 1rem;
+}
+
+/*------------------- GAME SCREEN---------------------- */
+
+#game-screen {
+    padding: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+div #score-board {
+    background-color: var(--light-blue);
+    border: 2px solid black;
+    margin: 2rem auto;
+    max-width: min(100%, 60rem);
+}
+
+.score-board {
+    text-align: center;
+    padding: 1rem;
+}
+
+.active {
+    border: 3px solid var(--dark-blue);
+    font-size: 2rem;
+    padding: 0.25rem;
+}
+
+.player-name {
+    font-family: var(--font-headings);
+    color: var(--main-color);
+}
+
+#start-the-game-button {
+    width: 50%;
+    max-width: 25rem;
+    background-color: var(--light-green);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.coverphoto {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.photo {
+    object-fit: cover;
+    overflow: hidden;
+    height: 19rem;
+    width: 13rem;
+    top: 0;
+    left: 0;
+}
+
+.cardFace {
+    border-radius: 10%;
+    height: 16rem;
+    width: 11rem;
+    overflow: hidden;    
+}
+
+.card {
+    margin: 0.25rem;
+}
+
+div .cardFace {
+    margin: 0 auto;
+}
+
+.cardBack {
+    border: 3px solid black;  
+}
+
+.cardBack:hover {
+    border-color: var(--light-green);
+}
+
+.cardFront {
+    border: 5px solid var(--main-color);  
+}
+
+#card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+#score-board {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: var(--game-white);
+    font-size: large;
+    max-width: min(100%, 90rem);
+    margin: 0 auto;
+    border: var(--game-pink);
+}
+
+.time-display {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#timeBar {
+    height: 3rem;
+    border-radius: 7px;
+    border: 2px solid black;
+    background: var(--light-green);
+    width: 20rem;
+}
+
+#timer {
+    margin-right: 1rem;
+}
+
+.time-wrap {
+    margin-left: 1rem;
+}
+
+#mins,
+#secs {
+    font-family: var(--font-main);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#tens {
+    font-family: var(--font-main);
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/*------------------- END SCREEN---------------------- */
+.display-winner-here {
+    
+    background-color: var(--light-blue);
+    border: 2px solid black;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    font-family: var(--font-headings);
+    font-size: min(14vw, 4rem);
+    text-align: center;
+    color: var(--main-color);
+    width: 50rem;
+    max-width: 100%;
+    min-height: 20rem;
+}

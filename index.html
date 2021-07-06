@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Picture Perfect</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/eggplant/theme.min.css" integrity="sha512-Cq3QrTRtZ7XwElSH89GK+NAZdPveBLey4PxajsCQyGyYTRqmXR9N96LdVGeLmE8sLSpSXaAQB8VzRkyFVhvwMQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <header>
+            <h1>Picture Perfect</h1>
+        </header>
+
+        <main>
+            <div class="outermost"> 
+                <div id="splash-screen" class="screen">
+                    <h2>Welcome!</h2>
+                        
+                        <div class="splash-photo">
+                            <img src="photos/card.jpg">
+                        </div>
+                        
+                        <div class="centering-button">
+                            <button class="how-to-button" type="button" data-toggle="modal" data-target="#howToModal">How To Play</button>
+                            <button id="play-now-button">Play Now</button>
+                        </div>
+                </div>
+
+                <div id="mode-screen" class="screen">
+                    <!-- <h2>Mode Screen</h2> -->
+
+                    <div class="mode-buttons centering-button">
+                        <button class="mode-help-button" type="button" data-toggle="modal" data-target="#helpModeModal">Help</button>
+                        <button id="mode-quit-button">Quit</button>
+                    </div>
+
+                    <section class="difficulty-input centering-button">
+                        <button id="easy-button" class="mode-select-1" type="button">Easy</button>
+                        <button id="medium-button" class="mode-select-2" type="button">Medium</button>
+                        <button id="hard-button" class="mode-select-3" type="button">Hard</button>
+                    </section>
+
+                    <section class="player-number-input centering-button">
+                        <button type="button" id="single-player-button">1 Player</button>
+                        <button type="button" id="double-player-button">2 Player</button>
+                        <button type="button" id="triple-player-button">3 Player</button>
+                        <button type="button" id="four-player-button">4 Player</button>
+                    </section>
+
+                    <!-- This section is where the players name inputs appear when they choose a number from player-number-input. -->
+                    <section class="player-name-input"></section>
+
+                    <!-- If user tries to click play before entering their name, this will display a message. -->
+                    <section class="player-name-alert"></section>
+
+                    <!-- If user tries to click play before entering a mode, this will display a message. -->
+                    <section class="player-mode-alert"></section>
+                    
+                    <section class="centering-button">
+                        <button id="play-game-button">Play Game</button>
+                    </section>   
+                </div>
+
+                <div id="game-screen" class="screen">
+                    <!-- <h2>Game Screen</h2> -->
+
+                    <div class="centering-button">
+                        <button class="game-help-button" type="button" data-toggle="modal" data-target="#helpGameModal">Help</button>
+                        <button id="game-quit-button">Quit</button>
+                        <button id="reset-button" type="button">Reset</button>
+                    </div>
+                        
+                    <div id="score-board">
+                        <h2>Score Board</h2>  
+                    </div>
+
+                    <section class="centering-button">
+                        <button id="start-the-game-button">START PLAYING!</button>
+                    </section>
+
+                    <div class="time-display">
+                        <div id="timer">
+                            <div id="numericDisplay">
+                                <span id="mins">MM:</span>
+                                <span id="secs">SS.</span>
+                                <span id="tens">t</span>
+                            </div>
+                        </div>
+
+                        <div class="time-wrap">
+                            <div id="timeBar"></div>
+                        </div>
+                    </div>
+                       
+                    <div id="card-grid"></div>
+                </div>
+
+                <div id="end-screen" class="screen">
+                    <!-- <h2>End Screen</h2> -->
+
+                    <section class="centering-button">
+                        <button id="play-again-button">Play Again</button>
+                        <button id="end-quit-button">Quit</button>
+                    </section>
+
+                    <!-- This is where the winners, losers, or no winners messages appear. -->
+                    <div class="display-winner-here"></div>                         
+                </div>
+
+                <!-- Splash screen , help modal. -->
+                <div class="modal fade" id="howToModal" tabindex="-1"  aria-labelledby="howToLabel" aria-hidden="true">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="howToLabel">How To Play</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            <p>Hello and welcome to Picture Perfect! This is a desktop memory match game. Depending on whether you play alone or with your friends the goal of the game is to either...</p>
+                            <p>1. Find all of the matches before the timer runs out in single player mode.</p>
+                            <p>2. Or find the most matches in multiplayer mode. The player with the most matches once all of the cards have been flipped, or the timer runs out, wins the game!</p>
+                            <p>Click the "play now" button to move to the selection screen.</p>
+                            <p>Good luck and have fun!</p>
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button type="button" class="how-to-button" data-dismiss="modal">Close</button>
+                            </div>  
+                       </div>     
+                    </div>
+                </div>
+
+                <!-- Mode screen , help modal. -->
+                <div class="modal fade" id="helpModeModal" tabindex="-1"  aria-labelledby="helpModeLabel" aria-hidden="true">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="helpModeLabel">Selection Instructions</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>1. Choose how many players are going to play, and enter your names.</p>
+                                <p>2. Select your game play mode. (Each difficulty level will add more cards to the grid, and give you a little extra time.)</p>
+                                <p> 3. Click "play game" when you're ready to start the fun to take you do the game screen!</p>
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button type="button" class="help-mode-button close-help" data-dismiss="modal">Close</button>
+                            </div>  
+                       </div>     
+                    </div>
+                </div>
+
+                <!-- Game screen , help modal. -->
+                <div class="modal fade" id="helpGameModal" tabindex="-1"  aria-labelledby="helpGameLabel" aria-hidden="true">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="helpGameLabel">Game-Play Instructions</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Click "start playing" to start the clock and enable the cards to be flipped!</p>
+                                <p>Hint: Flip over 2 cards and see if they match. If they don't match, try to remember what pictures are where so you can come back and get a point when you do find their match!</p>
+                                <p>The reset button will reset your score(s), and the timer, as well as shuffle the card grid.</p>
+                            </div>
+    
+                            <div class="modal-footer">
+                                <button type="button" class="help-game-button" data-dismiss="modal">Close</button>
+                            </div>  
+                       </div>     
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer></footer>
+    <script src="script.js"></script> 
+    </body>
+</html>
